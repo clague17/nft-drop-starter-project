@@ -2,10 +2,28 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import twitterLogo from "./assets/twitter-logo.svg";
 import CandyMachine from "./CandyMachine";
+import {
+  Box,
+  Heading,
+  Text,
+  Stack,
+  Image,
+  HStack,
+  AspectRatio,
+} from "@chakra-ui/react";
 
 // Constants
-const TWITTER_HANDLE = "_buildspace";
+const TWITTER_HANDLE = "clague17";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+
+const Feature = ({ title, desc, ...rest }) => (
+  <div>
+    <Heading fontSize={"72px"}>{title}</Heading>
+    <Text mt={4} fontSize={"36px"}>
+      {desc}
+    </Text>
+  </div>
+);
 
 const App = () => {
   // Actions
@@ -81,9 +99,35 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">🍭 Candy Drop</p>
-          <p className="sub-text">NFT drop machine with fair mint</p>
-          {!walletAddress && renderNotConnectedContainer()}
+          <Image
+            src={
+              "https://media2.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif?cid=ecf05e47f3cmli4l64unl59820kxmcaocd0855t7s1hfsk5v&rid=giphy.gif&ct=g"
+            }
+            boxSize="300px"
+            objectFit="cover"
+            alt="dancing pikachu"
+            borderRadius="20"
+            maxWidth="100%"
+          />
+          <Stack spacing={8} align="center">
+            <Feature
+              title={"🍭 PokeCandy Drop"}
+              desc={"NFT drop machine to catch 'em all"}
+            />
+
+            {!walletAddress && renderNotConnectedContainer()}
+          </Stack>
+
+          <Image
+            src={
+              "https://media2.giphy.com/media/fgxI1m3ZGSPh6/giphy.gif?cid=ecf05e475eb48f38lma93itkqpedaoczb98ovho9s5rjczvl&rid=giphy.gif&ct=g"
+            }
+            height="350px"
+            maxWidth="100%"
+            objectFit="cover"
+            alt="dancing pikachu"
+            borderRadius="20"
+          />
         </div>
         {walletAddress && <CandyMachine walletAddress={window.solana} />}
         <div className="footer-container">
@@ -93,7 +137,7 @@ const App = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`built by @${TWITTER_HANDLE}`}</a>
         </div>
       </div>
     </div>

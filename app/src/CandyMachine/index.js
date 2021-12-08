@@ -107,16 +107,11 @@ const CandyMachine = ({ walletAddress }) => {
 
   const renderMintedItems = () => (
     <div className="gif-container">
-      <Skeleton
-        isLoaded={!isLoadingMints}
-        startColor="pink.500"
-        endColor="orange.500"
-        height="40px"
-      >
+      <Skeleton isLoaded={!isLoadingMints} size={4}>
         <p className="sub-text">Minted Items ✨</p>
         <div className="gif-grid">
           {mints.map((mint, idx) => (
-            <div className="gif-item" key={idx}>
+            <div key={idx} className="gif-item">
               <img src={mint} alt={`Minted NFT ${mint}`} />
             </div>
           ))}
@@ -411,7 +406,8 @@ const CandyMachine = ({ walletAddress }) => {
           ) : (
             <Button
               leftIcon={"🍭"}
-              colorScheme="teal"
+              bgGradient="linear(left, #4e44ce, #35aee2)"
+              animation={"gradient-animation 4s ease infinite"}
               variant="solid"
               onClick={mintToken}
               isLoading={isMinting}
@@ -419,10 +415,8 @@ const CandyMachine = ({ walletAddress }) => {
               Mint NFT
             </Button>
           )}
-          <Box bg="white">
-            {isLoadingMints && renderFetchingMintsView()}
-            {mints.length > 0 && renderMintedItems()}
-          </Box>
+          {isLoadingMints && renderFetchingMintsView()}
+          {mints.length > 0 && renderMintedItems()}
         </Box>
       </div>
     )
