@@ -4,7 +4,7 @@ import { Program, Provider, web3 } from "@project-serum/anchor";
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
 import { programs } from "@metaplex/js";
 import "./CandyMachine.css";
-import CountdownTimer from "../CountdownTimer";
+// import CountdownTimer from "../CountdownTimer";
 import {
   candyMachineProgram,
   TOKEN_METADATA_PROGRAM_ID,
@@ -124,21 +124,21 @@ const CandyMachine = ({ walletAddress }) => {
     </div>
   );
 
-  const renderDropTimer = () => {
-    // Get the current date and dropDate in a JavaScript Date object
-    const currentDate = new Date();
-    const dropDate = new Date(machineStats.goLiveData * 1000);
+  // const renderDropTimer = () => {
+  //   // Get the current date and dropDate in a JavaScript Date object
+  //   const currentDate = new Date();
+  //   const dropDate = new Date(machineStats.goLiveData * 1000);
 
-    // If currentDate is before dropDate, render our Countdown component
-    if (currentDate < dropDate) {
-      // Don't forget to pass over your dropDate!
-      return <CountdownTimer dropDate={dropDate} />;
-    } else {
-      setIsDropLive(true);
-    }
-    return;
-    // Else let's just return the current drop date
-  };
+  //   // If currentDate is before dropDate, render our Countdown component
+  //   if (currentDate < dropDate) {
+  //     // Don't forget to pass over your dropDate!
+  //     return <CountdownTimer dropDate={dropDate} />;
+  //   } else {
+  //     setIsDropLive(true);
+  //   }
+  //   return;
+  //   // Else let's just return the current drop date
+  // };
 
   useEffect(() => {
     getCandyMachineState();
@@ -394,40 +394,38 @@ const CandyMachine = ({ walletAddress }) => {
         <Box p={4}>
           <div className="drop-info">
             <p className="sub-text">{`The adventure begins: ${machineStats.goLiveDateTimeString}`}</p>
-            {renderDropTimer()}
             <p className="sub-text">{`Pokemon Caught: ${machineStats.itemsRedeemed} / ${machineStats.itemsAvailable}`}</p>
           </div>
-          {isDropLive &&
-            (machineStats.itemsRedeemed === machineStats.itemsAvailable ? (
-              <div className="sold-out">
-                <img
-                  src="https://emoji.gg/assets/emoji/6940-yikes.png"
-                  width="64px"
-                  height="64px"
-                  alt="Yikes"
-                />
-                <p className="sub-text">Sold Out </p>
-                <img
-                  src="https://emoji.gg/assets/emoji/6940-yikes.png"
-                  width="64px"
-                  height="64px"
-                  alt="Yikes"
-                />
-              </div>
-            ) : (
-              <Button
-                leftIcon={"🍭"}
-                my={5}
-                bgGradient="linear(to-r, #4e44ce, #35aee2)"
-                transition="gradient-animation 4s ease infinite"
-                variant="solid"
-                onClick={mintToken}
-                isLoading={isMinting}
-                spinner={<PikachuSpinner />}
-              >
-                Mint NFT
-              </Button>
-            ))}
+          {machineStats.itemsRedeemed === machineStats.itemsAvailable ? (
+            <div className="sold-out">
+              <img
+                src="https://emoji.gg/assets/emoji/6940-yikes.png"
+                width="64px"
+                height="64px"
+                alt="Yikes"
+              />
+              <p className="sub-text">Sold Out </p>
+              <img
+                src="https://emoji.gg/assets/emoji/6940-yikes.png"
+                width="64px"
+                height="64px"
+                alt="Yikes"
+              />
+            </div>
+          ) : (
+            <Button
+              leftIcon={"🍭"}
+              my={5}
+              bgGradient="linear(to-r, #4e44ce, #35aee2)"
+              transition="gradient-animation 4s ease infinite"
+              variant="solid"
+              onClick={mintToken}
+              isLoading={isMinting}
+              spinner={<PikachuSpinner />}
+            >
+              Mint NFT
+            </Button>
+          )}
           {machineStats.itemsRedeemed !== 0 && renderMintedItems()}
         </Box>
       </div>
