@@ -50,6 +50,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+.renderNotConnectedContainer {
+  margin-bottom: 100px;
+}
+
 .cta-button {
   height: 45px;
   border: 0;

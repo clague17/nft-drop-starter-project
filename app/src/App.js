@@ -58,7 +58,7 @@ const App = () => {
 
   const renderNotConnectedContainer = () => {
     return (
-      <div id="renderNotConnectedContainer">
+      <div id="renderNotConnectedContainer" style={{ marginBottom: "70px" }}>
         <button
           className="cta-button connect-wallet-button"
           onClick={connectWallet}
