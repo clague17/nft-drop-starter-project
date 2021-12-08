@@ -1,0 +1,23 @@
+{
+  "name": "M Rayquaza EX",
+  "symbol": "",
+  "image": "18.png",
+  "collection": {
+    "name": "Solana Pokemon",
+    "family": "Pokemon"
+  },
+  "properties": {
+    "files": [
+      {
+        "uri": "18.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "DScDRNNkyERZqQ8xREGMUP5naGhPZPUd7szmbu85rPVS",
+        "share": 100
+      }
+    ]
+  }
+}

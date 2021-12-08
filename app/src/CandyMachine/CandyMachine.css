@@ -14,14 +14,31 @@
   margin: 20px 0px 20px 0px;
 }
 
+.sold-out .sub-text p {
+  display: flex;
+}
+
 .sold-out .sub-text {
-  width: 10%;
+  margin: 0 20px 0 20px;
 }
 
 .sold-out img {
   border-radius: 10px;
 }
 
+.minted-items {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 20px 0px;
+}
+
+.minted-items .sub-text {
+  padding: 0 10px 0 10px;
+}
+
+.minted-items .sub-text p {
+  display: flex;
+}
 /* .gif-grid {
   width: 100%;
   overscroll-behavior: contain;

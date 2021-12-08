@@ -1,0 +1,23 @@
+{
+  "name": "M Charizard EX",
+  "symbol": "",
+  "image": "13.png",
+  "collection": {
+    "name": "Solana Pokemon",
+    "family": "Pokemon"
+  },
+  "properties": {
+    "files": [
+      {
+        "uri": "13.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "DScDRNNkyERZqQ8xREGMUP5naGhPZPUd7szmbu85rPVS",
+        "share": 100
+      }
+    ]
+  }
+}

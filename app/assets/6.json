@@ -1,0 +1,23 @@
+{
+  "name": "Gengar VMAX",
+  "symbol": "",
+  "image": "6.png",
+  "collection": {
+    "name": "Solana Pokemon",
+    "family": "Pokemon"
+  },
+  "properties": {
+    "files": [
+      {
+        "uri": "6.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "DScDRNNkyERZqQ8xREGMUP5naGhPZPUd7szmbu85rPVS",
+        "share": 100
+      }
+    ]
+  }
+}
