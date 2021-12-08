@@ -13,8 +13,6 @@ import {
 import { Box, Button, Image, Skeleton, Divider } from "@chakra-ui/react";
 import PikachuSpinner from "../util/PikachuSpinner";
 
-import BeatLoader from "react-spinners/ClipLoader";
-
 const {
   metadata: { Metadata, MetadataProgram },
 } = programs;
@@ -76,14 +74,6 @@ const CandyMachine = ({ walletAddress }) => {
       goLiveDateTimeString,
     });
 
-    console.log({
-      itemsAvailable,
-      itemsRedeemed,
-      itemsRemaining,
-      goLiveData,
-      goLiveDateTimeString,
-    });
-
     const data = await fetchHashTable(
       process.env.REACT_APP_CANDY_MACHINE_ID,
       true
@@ -133,17 +123,6 @@ const CandyMachine = ({ walletAddress }) => {
       </Skeleton>
     </div>
   );
-
-  const renderFetchingMintsView = () => {
-    <div>
-      <Skeleton
-        isLoading
-        startColor="pink.500"
-        endColor="orange.500"
-        height="40px"
-      />
-    </div>;
-  };
 
   const renderDropTimer = () => {
     // Get the current date and dropDate in a JavaScript Date object
@@ -449,7 +428,7 @@ const CandyMachine = ({ walletAddress }) => {
                 Mint NFT
               </Button>
             ))}
-          {machineStats.itemsRedeemed != 0 && renderMintedItems()}
+          {machineStats.itemsRedeemed !== 0 && renderMintedItems()}
         </Box>
       </div>
     )

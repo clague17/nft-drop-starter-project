@@ -2,15 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import twitterLogo from "./assets/twitter-logo.svg";
 import CandyMachine from "./CandyMachine";
-import {
-  Box,
-  Heading,
-  Text,
-  Stack,
-  Image,
-  HStack,
-  AspectRatio,
-} from "@chakra-ui/react";
+import { Heading, Text, Stack, Image } from "@chakra-ui/react";
 
 // Constants
 const TWITTER_HANDLE = "clague17";
@@ -39,14 +31,8 @@ const App = () => {
 
       if (solana) {
         if (solana.isPhantom) {
-          console.log("Phantom wallet found!");
-
           // try to connect here
           const response = await solana.connect({ onlyIfTrusted: true });
-          console.log(
-            "Connected with Public Key:",
-            response.publicKey.toString()
-          );
           setWalletAddress(response.publicKey.toString());
         }
       } else {
