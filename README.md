@@ -6,7 +6,7 @@ Built this project with [buildspace](https://app.buildspace.so/projects/CO77556b
 
 ### PokeCandy NFT Drop
 
-![Running Pikachu]("https://emoji.gg/assets/emoji/5541-running-pikachu.gif")
+![Running Pikachu](running-pikachu.gif)
 
 Check out the deployed site here: https://pokecandy-nft.vercel.app/
 
