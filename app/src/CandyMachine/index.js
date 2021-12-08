@@ -10,8 +10,9 @@ import {
   TOKEN_METADATA_PROGRAM_ID,
   SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
 } from "./helpers";
-import { Box, Button, Spinner, Skeleton } from "@chakra-ui/react";
+import { Box, Button, Text, Skeleton } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
+import PikachuSpinner from "../util/PikachuSpinner";
 
 import BeatLoader from "react-spinners/ClipLoader";
 
@@ -106,8 +107,8 @@ const CandyMachine = ({ walletAddress }) => {
   };
 
   const renderMintedItems = () => (
-    <div className="gif-container">
-      <Skeleton isLoaded={!isLoadingMints} size={4}>
+    <Skeleton isLoaded={!isLoadingMints} size={4}>
+      <div className="gif-container">
         <p className="sub-text">Minted Items ✨</p>
         <div className="gif-grid">
           {mints.map((mint, idx) => (
@@ -116,8 +117,8 @@ const CandyMachine = ({ walletAddress }) => {
             </div>
           ))}
         </div>
-      </Skeleton>
-    </div>
+      </div>
+    </Skeleton>
   );
 
   const renderFetchingMintsView = () => {
@@ -398,11 +399,40 @@ const CandyMachine = ({ walletAddress }) => {
   return (
     machineStats && (
       <div>
-        <Box borderRadius="lg" p={4}>
-          <p>{`Drop Date: ${machineStats.goLiveDateTimeString}`}</p>
-          <p>{`Items Minted: ${machineStats.itemsRedeemed} / ${machineStats.itemsAvailable}`}</p>
+        <Box p={4}>
+          <div className="drop-info">
+            <p className="sub-text">{`The adventure begins: ${machineStats.goLiveDateTimeString}`}</p>
+            <p className="sub-text">{`Pokemon Caught: ${machineStats.itemsRedeemed} / ${machineStats.itemsAvailable}`}</p>
+          </div>
           {machineStats.itemsRedeemed === machineStats.itemsAvailable ? (
-            <p className="sub-text">Sold Out 🙊</p>
+            <div className="sold-out">
+              <img
+                src="https://emoji.gg/assets/emoji/6940-yikes.png"
+                width="64px"
+                height="64px"
+                alt="Yikes"
+              />
+              <p className="sub-text">Sold Out </p>
+              <img
+                src="https://emoji.gg/assets/emoji/6940-yikes.png"
+                width="64px"
+                height="64px"
+                alt="Yikes"
+              />
+              <Button
+                leftIcon={"🍭"}
+                bgGradient="linear(left, #4e44ce, #35aee2)"
+                animation={"gradient-animation 4s ease infinite"}
+                variant="solid"
+                onClick={mintToken}
+                spinnerPlacement="start"
+                loadingText="Minting"
+                isLoading={isLoadingMints}
+                spinner={<PikachuSpinner />}
+              >
+                Mint
+              </Button>
+            </div>
           ) : (
             <Button
               leftIcon={"🍭"}
@@ -411,11 +441,11 @@ const CandyMachine = ({ walletAddress }) => {
               variant="solid"
               onClick={mintToken}
               isLoading={isMinting}
+              spinner={<PikachuSpinner />}
             >
               Mint NFT
             </Button>
           )}
-          {isLoadingMints && renderFetchingMintsView()}
           {mints.length > 0 && renderMintedItems()}
         </Box>
       </div>

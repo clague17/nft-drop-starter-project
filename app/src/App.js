@@ -99,35 +99,24 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <Image
-            src={
-              "https://media2.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif?cid=ecf05e47f3cmli4l64unl59820kxmcaocd0855t7s1hfsk5v&rid=giphy.gif&ct=g"
-            }
-            boxSize="300px"
-            objectFit="cover"
-            alt="dancing pikachu"
-            borderRadius="20"
-            maxWidth="100%"
-          />
           <Stack spacing={8} align="center">
             <Feature
               title={"🍭 PokeCandy Drop"}
               desc={"NFT drop machine to catch 'em all"}
             />
 
+            <Image
+              src={
+                "https://media2.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif?cid=ecf05e47f3cmli4l64unl59820kxmcaocd0855t7s1hfsk5v&rid=giphy.gif&ct=g"
+              }
+              boxSize="300px"
+              objectFit="cover"
+              alt="dancing pikachu"
+              borderRadius="20"
+              maxWidth="100%"
+            />
             {!walletAddress && renderNotConnectedContainer()}
           </Stack>
-
-          <Image
-            src={
-              "https://media2.giphy.com/media/fgxI1m3ZGSPh6/giphy.gif?cid=ecf05e475eb48f38lma93itkqpedaoczb98ovho9s5rjczvl&rid=giphy.gif&ct=g"
-            }
-            height="350px"
-            maxWidth="100%"
-            objectFit="cover"
-            alt="dancing pikachu"
-            borderRadius="20"
-          />
         </div>
         {walletAddress && <CandyMachine walletAddress={window.solana} />}
         <div className="footer-container">

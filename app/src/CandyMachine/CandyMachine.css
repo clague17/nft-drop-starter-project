@@ -8,6 +8,20 @@
   flex-direction: column;
 }
 
+.sold-out {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 20px 0px;
+}
+
+.sold-out .sub-text {
+  width: 10%;
+}
+
+.sold-out img {
+  border-radius: 10px;
+}
+
 /* .gif-grid {
   width: 100%;
   overscroll-behavior: contain;
