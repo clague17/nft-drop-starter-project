@@ -63,7 +63,7 @@ const App = () => {
           className="cta-button connect-wallet-button"
           onClick={connectWallet}
         >
-          Connect Wallet
+          Connect Wallet on Devnet
         </button>
       </div>
     );
@@ -88,7 +88,7 @@ const App = () => {
           <Stack spacing={8} align="center">
             <Feature
               title={"🍭 PokeCandy Drop"}
-              desc={"NFT drop machine to catch 'em all"}
+              desc={"NFT drop machine on Devnet to catch 'em all"}
             />
 
             <Image

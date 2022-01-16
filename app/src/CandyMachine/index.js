@@ -315,18 +315,13 @@ const CandyMachine = ({ walletAddress }) => {
         instructions,
       });
 
-      console.log("txn:", txn);
-
       // Setup listener
       connection.onSignatureWithOptions(
         txn,
         async (notification, context) => {
           if (notification.type === "status") {
-            console.log("Receievd status event");
-
             const { result } = notification;
             if (!result.err) {
-              console.log("NFT Minted!");
               setIsMinting(false);
               await getCandyMachineState();
             }
@@ -404,7 +399,7 @@ const CandyMachine = ({ walletAddress }) => {
                 height="64px"
                 alt="Yikes"
               />
-              <p className="sub-text">Sold Out </p>
+              <p className="sub-text">Sold Out</p>
               <img
                 src="https://emoji.gg/assets/emoji/6940-yikes.png"
                 width="64px"
