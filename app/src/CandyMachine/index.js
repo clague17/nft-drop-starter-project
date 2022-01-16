@@ -84,7 +84,6 @@ const CandyMachine = ({ walletAddress }) => {
         // Get URI
         const response = await fetch(mint.data.uri);
         const parse = await response.json();
-        console.log("Past Minted NFT", mint);
 
         // Get image URI
         if (!mints.find((mint) => mint === parse.image)) {
